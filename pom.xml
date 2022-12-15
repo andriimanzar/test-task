@@ -10,10 +10,10 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.manzar</groupId>
-  <artifactId>test-task2</artifactId>
+  <artifactId>test-task</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>test-task2</name>
-  <description>test-task2</description>
+  <description>test-task</description>
   <properties>
     <java.version>17</java.version>
   </properties>
@@ -26,7 +26,6 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
-
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
