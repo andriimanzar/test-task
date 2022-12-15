@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.anyLong;
 import static org.mockito.Mockito.when;
 
+import com.manzar.UserFactory;
 import com.manzar.exception.UserNotFoundException;
 import com.manzar.model.User;
 import com.manzar.repository.UserRepository;
@@ -27,7 +28,7 @@ class UserServiceTest {
 
   @Test
   void getUserByIdWorkingProperly() {
-    User testUser = new User(1L, "test", "test", 30);
+    User testUser = UserFactory.createTestUser();
     when(userRepository.findById(anyLong()))
         .thenReturn(Optional.of(testUser));
 
