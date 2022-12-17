@@ -38,7 +38,7 @@ class UserServiceTest {
     when(userRepository.findById(anyLong()))
         .thenReturn(Optional.of(testUser));
 
-    UserForm user = userService.getUserById(1L);
+    UserForm user = userService.getUserById(testUser.getId());
 
     assertEquals(testUser.getFirstName(), user.getFirstName());
     assertEquals(testUser.getLastName(), user.getLastName());
@@ -52,9 +52,9 @@ class UserServiceTest {
 
   private static Stream<Arguments> provideUsersAndTheirAge() {
     return Stream.of(
-        Arguments.of(new User(1L, "test", "test", LocalDate.of(2000, 10, 10))),
-        Arguments.of(new User(2L, "test", "test", LocalDate.of(2001, 5, 2))),
-        Arguments.of(new User(3L, "test", "test", LocalDate.of(1990, 7, 3))));
+        Arguments.of(new User(1L, "test#1", "test#1", LocalDate.of(2000, 10, 10))),
+        Arguments.of(new User(2L, "test#2", "test#2", LocalDate.of(2001, 5, 2))),
+        Arguments.of(new User(3L, "test#3", "test#3", LocalDate.of(1990, 7, 3))));
 
   }
 }
