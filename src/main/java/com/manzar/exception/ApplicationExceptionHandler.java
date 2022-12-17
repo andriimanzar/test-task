@@ -1,5 +1,8 @@
 package com.manzar.exception;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -12,8 +15,16 @@ public class ApplicationExceptionHandler {
 
   @ExceptionHandler
   public ResponseEntity<ExceptionInfo> handleUserNotFoundException(UserNotFoundException e) {
-    return new ResponseEntity<>(
-        new ExceptionInfo(USER_NOT_FOUND_ERROR_CODE, e.getMessage()),
+    return new ResponseEntity<>(new ExceptionInfo(USER_NOT_FOUND_ERROR_CODE, e.getMessage()),
         HttpStatus.NOT_FOUND);
+  }
+
+  @Getter
+  @Setter
+  @AllArgsConstructor
+  private static class ExceptionInfo {
+
+    private final String errorCode;
+    private final String errorMessage;
   }
 }
