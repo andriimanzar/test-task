@@ -44,7 +44,7 @@ class TestTaskEndToEndApplicationTests {
   }
 
   @Test
-  void getUserByIdWorkingProperlyIfUserNotFound() throws Exception {
+  void getUserByIdReturnsStatusNotFoundIfUserNotFound() throws Exception {
     mockMvc.perform(MockMvcRequestBuilders.get("/api/users/100")).
         andExpect(status().isNotFound());
   }
